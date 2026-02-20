@@ -5,9 +5,14 @@ const app = express();
 //const prisma = new PrismaClient();
 
 app.use(express.json());
-
+// find methods 
+// findFirst()-- first  item 
+// findFirstandThrow(), findMany, findUnique()
+//
 app.get("/users", async (req, res) => {
-  const users = await prisma.user.findMany();
+  const users = await prisma.user.findMany({
+    where : {name:"Doremon"}
+  });
   res.json(users);
 });
 
